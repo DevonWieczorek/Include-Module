@@ -4,6 +4,7 @@ Replicates node's "include" functionality for front-end JS
 
 @src - string, source of the script to 'include'
 @callback - function, callback to be executed after the script is loaded
+
 @options - JSON object
 - @before - string, script to 'include' before
 - @after - string, script to 'include' after
