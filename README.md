@@ -1,5 +1,6 @@
 # Include-Module
-Replicates node's "include" functionality for front-end JS
+Replicates CSS's "@import" functionality for front-end JS
+Similar to ES6's experimental "import" feature
 
 
 @src - string, source of the script to 'include'
