@@ -4,10 +4,11 @@
 // @options - JSON object
 //          - @before - string, script to 'include' before
 //          - @after - string, script to 'include' after
-//          - @replace - string, script to replace with our new script
+//          - @replace - string, script source or regex of source to replace with our                  new script
 //          - @async - boolean, whether or not our new script should be async
 // The include function only accepts before, after, or replace
 // If multiple are present, the first one takes precedence
+// Extend implementation found on https://jsfiddle.net/1vrkw1pc/
 
 function include(src, callback, options){
     function appendHead(s){
@@ -25,6 +26,23 @@ function include(src, callback, options){
         }
     }
     
+    // Vanilla JS implementation of jQuery $.extend();
+    function extend(){
+        for(var i = 1; i < arguments.length; i++){
+            for(var key in arguments[i]){
+                if(arguments[i].hasOwnProperty(key)) { 
+                    if (typeof arguments[0][key] === 'object' && typeof arguments[i][key] === 'object'){
+                        extend(arguments[0][key], arguments[i][key]);
+                    }      
+                    else{
+                        arguments[0][key] = arguments[i][key];
+                    } 
+                 }
+            }    
+        }
+        return arguments[0];
+    }
+    
     return (function(){
         
         // Allow options with no callback
@@ -34,12 +52,13 @@ function include(src, callback, options){
         }
         
         // Handle options
-        var settings = $.extend({
+        var settings = {
             before: '',
             after: '',
             replace: '',
             async: false
-        }, options);
+        };
+        settings = extend(settings, options);
         
         // Create our script tag
         var s = document.createElement('script');
