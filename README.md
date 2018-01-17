@@ -1,5 +1,5 @@
 # Include-Module
-Replicates node's "include" functionality
+Replicates node's "include" functionality for front-end JS
 
 
 @src - string, source of the script to 'include'
