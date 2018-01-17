@@ -1,15 +1,3 @@
-// Try to replicate node's 'include' functionality for front-end JS
-// @src - string, source of the script to 'include'
-// @callback - function, callback to be executed after the script is loaded
-// @options - JSON object
-//          - @before - string, script to 'include' before
-//          - @after - string, script to 'include' after
-//          - @replace - string, script source or regex of source to replace with our                  new script
-//          - @async - boolean, whether or not our new script should be async
-// The include function only accepts before, after, or replace
-// If multiple are present, the first one takes precedence
-// Extend implementation found on https://jsfiddle.net/1vrkw1pc/
-
 function include(src, callback, options){
     function appendHead(s){
         document.getElementsByTagName('head')[0].appendChild(s);
