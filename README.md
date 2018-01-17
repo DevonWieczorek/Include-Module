@@ -12,3 +12,5 @@ Replicates node's "include" functionality
 
 Options should only include ONE of the three destination selectors (before, after, replace), 
 otherwise the first argument is the one that is used.
+
+Extend implementation found on https://jsfiddle.net/1vrkw1pc/
