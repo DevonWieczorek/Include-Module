@@ -6,8 +6,8 @@ Replicates node's "include" functionality for front-end JS
 @callback - function, callback to be executed after the script is loaded
 
 @options - JSON object
-- @before - string, script to 'include' before
-- @after - string, script to 'include' after
+- @before - string, source of script to 'include' before
+- @after - string, source of script to 'include' after
 - @replace - string, script source or regex of source to replace with our new script
 - @async - boolean, whether or not our new script should be async
 
