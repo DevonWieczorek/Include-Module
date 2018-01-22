@@ -7,8 +7,13 @@ function include(src, callback, options){
         var scripts = document.getElementsByTagName("script");
         for(var i = 0; i < scripts.length; i++) {
             if (scripts[i].src.match(target)) {
-                scripts[i].src = replacement;
-                if(async) scripts[i].async = true;
+                // First add the new script after the target
+                var parent = scripts[i].parentNode;
+                console.log(parent.nodeType);
+                parent.insertBefore(replacement, scripts[i].nextSibling);
+                
+                // Then remove the script to be 'replaced'
+                parent.removeChild(scripts[i]);
                 break;
             }
         }
@@ -58,7 +63,7 @@ function include(src, callback, options){
         
         // Handle different insertion cases
         if(settings.replace){
-            replaceScript(settings.replace, src, settings.async);
+            replaceScript(settings.replace, s, settings.async);
         }
         else if(settings.before){
             var target = document.querySelector('[src="' + settings.before + '"]');
