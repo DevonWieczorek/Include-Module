@@ -1,9 +1,22 @@
+// Try to replicate CSS's '@import' functionality for front-end JS
+// Similar to ES6's experimental 'import' feature
+// @src - string, source of the script to 'include'
+// @callback - function, callback to be executed after the script is loaded
+// @options - JSON object
+//          - @before - string, source of script to 'include' before
+//          - @after - string, source of script to 'include' after
+//          - @replace - string, script source or regex of source to replace with our                  new script
+//          - @async - boolean, whether or not our new script should be async
+// The include function only accepts before, after, or replace
+// If multiple are present, the first one takes precedence
+// Extend implementation found on https://jsfiddle.net/1vrkw1pc/
+
 function include(src, callback, options){
     function appendHead(s){
         document.getElementsByTagName('head')[0].appendChild(s);
     }
     
-    function replaceScript(target, replacement, async){
+    function replaceScript(target, replacement){
         var scripts = document.getElementsByTagName("script");
         for(var i = 0; i < scripts.length; i++) {
             if (scripts[i].src.match(target)) {
@@ -63,7 +76,7 @@ function include(src, callback, options){
         
         // Handle different insertion cases
         if(settings.replace){
-            replaceScript(settings.replace, s, settings.async);
+            replaceScript(settings.replace, s);
         }
         else if(settings.before){
             var target = document.querySelector('[src="' + settings.before + '"]');
