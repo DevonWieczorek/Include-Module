@@ -72,7 +72,7 @@ function include(src, callback, options){
         if(settings.async) s.async = true;
         
         // Handle callback
-        if(callback) s.addEventListener('load', callback);
+        if(callback && typeof callback == 'function') s.addEventListener('load', callback);
         
         // Handle different insertion cases
         if(settings.replace){
