@@ -43,3 +43,18 @@ include('script.js', function(){
 
 ### Options:
 We can pass additional options into our function via a JSON object, such as whether the script we are importing should load asyncronously or not, whether we want to insert our script before or after a particular script that is in the header (this is handy for scripts that are dependant on other scripts), or whether we want to completely replace a script with our new one (for example, if we want to replace one version of jQuery with another).
+```javascript
+// Add our script with an asynchronous attribute (async is false by default)
+include('script.js', {async: true});
+
+// Add our script before a specified script
+// If before, after, or remove are not specified, the script is appended to the bottom of the <head>
+include('script.js', {after: 'scriptToAddAfter.js'});
+include('script.js', {before: 'scriptToAddBefore.js'});
+include('script.js', {replace: 'scriptToReplace.js'});
+
+// Putting everything all together
+include('script.js', function(){
+    console.log('Script has been loaded before scriptToAddBefore.js successfully!');
+}, {async: false, before: 'scriptToAddBefore.js'});
+```
