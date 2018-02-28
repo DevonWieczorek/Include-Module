@@ -23,7 +23,7 @@ Extend implementation found on https://jsfiddle.net/1vrkw1pc/
 
 ### Basic Usage:
 ```javascript
-if(deviceSize == 'mobile') include('mobile.js');
+if (deviceSize == 'mobile') include('mobile.js');
 else include('web.js');
 ```
 
