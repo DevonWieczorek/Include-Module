@@ -56,5 +56,8 @@ include('script.js', {replace: 'scriptToReplace.js'});
 // Putting everything all together
 include('script.js', function(){
     console.log('Script has been loaded before scriptToAddBefore.js successfully!');
-}, {async: false, before: 'scriptToAddBefore.js'});
+},{
+async: false, 
+before: 'scriptToAddBefore.js'
+});
 ```
