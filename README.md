@@ -17,3 +17,12 @@ Options should only include ONE of the three destination selectors (before, afte
 otherwise the first argument is the one that is used.
 
 Extend implementation found on https://jsfiddle.net/1vrkw1pc/
+
+**NOTE: This is not a true implementation of the experimental 'import' function in ES6, we are not actually creating a reference to any objects that may be included in the script you are importing, and we do not choose which variables or objects to import. We are simply adding an external script to our page dynamically. 
+
+
+### Basic Usage:
+```javascript
+if(deviceSize == 'mobile') include('mobile.js');
+else include('web.js');
+```
