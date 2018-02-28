@@ -22,7 +22,6 @@ function include(src, callback, options){
             if (scripts[i].src.match(target)) {
                 // First add the new script after the target
                 var parent = scripts[i].parentNode;
-                console.log(parent.nodeType);
                 parent.insertBefore(replacement, scripts[i].nextSibling);
                 
                 // Then remove the script to be 'replaced'
