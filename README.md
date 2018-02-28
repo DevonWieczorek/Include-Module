@@ -40,3 +40,6 @@ include('script.js', function(){
     // Execute dependant code here
 });
 ```
+
+### Options:
+We can pass additional options into our function via a JSON object, such as whether the script we are importing should load asyncronously or not, whether we want to insert our script before or after a particular script that is in the header (this is handy for scripts that are dependant on other scripts), or whether we want to completely replace a script with our new one (for example, if we want to replace one version of jQuery with another).
