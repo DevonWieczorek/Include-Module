@@ -26,3 +26,17 @@ Extend implementation found on https://jsfiddle.net/1vrkw1pc/
 if(deviceSize == 'mobile') include('mobile.js');
 else include('web.js');
 ```
+
+### Callbacks:
+There is an optional callback that we can pass into our function to execute after our script has been successfully loaded.
+This is a good place to put any code that may be dependant on the script you are importing.
+```javascript
+// We can pass in an existing function like this
+include('script.js', callbackFunction());
+
+// Or we can use an anonymous callback as our function
+include('script.js', function(){
+    console.log('loaded');
+    // Execute dependant code here
+});
+```
